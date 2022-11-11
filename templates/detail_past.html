@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 style='padding-left: 10px'>
+	<u>
+		{{object.name}}
+	</u>
+</h1>
+<br>
+<div style="border-style:solid;width: 50%; float: left;">
+	<pre>
+		{{object.report}}
+	</pre>
+</div>
+<div style="padding-left: 50.3%">
+	<p>
+		<h4 style='padding-left: 10px'>
+			Date: {{object.date}}
+		</h4>
+	</p>
+	{% if object.email == user.email %}
+	<button style="padding: 8px 15px;margin: 0px 10px;" onclick="location.href='add/report/{{object.id1}}'">
+			<font color=white>
+				<h4>
+					Click here to add report
+				</h4>
+			</font>
+		</a>
+	</button>
+	{%else%} 
+	<button style="padding: 8px 15px;margin: 0px 10px;" onclick="location.href='add/feedback/{{object.id1}}'">
+			<font color=white>
+				<h4>
+					Click here to add feedback
+				</h4>
+			</font>
+	</button>
+	{%endif%}
+</div>
+<hr>
+<div style="padding-left: 51%">
+	<ul>
+		{%for x in feedback%}
+		<li><b>{{x.uname}}</b> said:<br><i>{{x.feedback}}</i><hr>
+		{% endfor %}
+	</ul>
+</div>
+{% endblock content %}

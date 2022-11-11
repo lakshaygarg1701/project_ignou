@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{%block content%}
+<form method="GET" style='padding-left: 10px'>
+	<select name="category">
+		<option disabled selected>Category</option>
+		<option value='E-Sports'>E-Sports</option>
+		<option value='Sports'>Sports</option>
+		<option value='Technical'>Technical</option>
+		<option value='Cultural'>Cultural</option>
+		<option value='Others'>Others</option>
+	</select>
+	<select name="department">
+		<option disabled selected>Department</option>
+		<option value='CS'>Dept. of Computer Science</option>
+		<option value='BBA'>Dept. of Business Administration</option>
+		<option value='B.Com.'>Dept. of Commerce</option>
+		<option value='B.Ed.'>Dept. of Education</option>
+	</select>
+	<button type="submit">Filter</button>
+</form>
+<br/>
+<div style='padding-left:10px;'>
+	<table>
+		<tr>
+			<th>Event Name</th>
+			<th>Date</th>
+			<th>Venue</th>
+			<th>Department</th>
+		</tr>
+		{%for x in object_list%}
+		<tr>
+			<td>
+				<a href="/content/upcoming/{{x.id1}}">{{x.name}}</a>
+			</td>
+			<td>{{x.date}}</td>
+			<td>{{x.venue}}</td>
+			<td>{{x.dept}}</td>
+			</td>
+		</tr>
+		{%endfor%}
+	</table>
+</div>
+{%endblock content%}

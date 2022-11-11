@@ -1,0 +1,14 @@
+{% extends "base.html"%}
+{% block content %}
+  <h2>Notification for the event</h2>
+  <form method="POST" style="padding-left: 5px">
+    {% csrf_token %}
+    {{ form }}
+    <input type="hidden" id='email' value="{{user.email}}">
+    <script>
+    	document.getElementById('id_id1').setAttribute('value',document.URL.split('/')[6])
+    	document.getElementById('id_email').setAttribute('value',document.getElementById('email').getAttribute('value'))
+    </script>
+    <button type="submit">Sign up</button>
+  </form>
+{% endblock %}

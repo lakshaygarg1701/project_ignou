@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/q.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/first.css' %}">
+  <meta charset="utf-8">
+  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+  <link rel='shortcut icon' href="{% static 'favicon.ico' %}" type='image/x-icon' />
+  <title>{% block title %}Maharaja Surajmal Institute{% endblock %}</title>
+</head>
+<body>
+  <header id="header">
+    <div class="wrapper">
+      <div class="brand_wrapper">
+        <div style="float:left;margin-right:30px;">
+          <img src="{% static 'logo.png'%}" style="clear: right;" title="IGNOU" height="130" width="130">
+        </div>
+        <div class="navbar-brand-wpz">
+          <h1>IGNOU Event Management</h1>
+            {% comment %} <p class="tagline"><font size="4"></p> {% endcomment %}
+        </div><!-- .navbar-brand -->
+        <div id="navbar-logo" class="logo-navbar" style="max-width: 200px;">
+          <div>
+            <ul style="list-style: none;">
+              <li>{% if user.is_authenticated %}
+              Hi {{ user.first_name }}<br>
+              <button type="submit" style="height:100%; width:40%;" onclick="location.href='{% url 'logout' %}'"><font color=white>Logout</font></a></button>
+              {% else %}
+              <p>You are not logged in</p>
+              <button type="submit" style="height:100%; width:40%;" onclick="location.href='{% url 'login' %}'"><font color=white>Login</font></a></button>
+              {% endif %}
+              {% if user.is_authenticated %}
+              <button type="submit" style="height:100%; width:50%;" onclick="location.href='/add/form'"><font color=white>Add Event</font></button>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="cleaner">&nbsp;</div>
+    </div><!-- end .wrapper -->
+  </header>
+  <nav id="main-navbar" class="main-navbar">
+	<button style='padding-left:10px;' onclick="location.href='/content/upcoming'"><font color='white'>Upcoming Events</font></a></button>
+	  <button style='padding-left:10px;' onclick="location.href='/content/past'"><font color='white'>Past Events</font></a></button>
+	</nav>
+</div>
+<main>
+  {% block content %}
+  {% endblock %}
+</main>
+</body>
+</html>
