@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
   <link rel='shortcut icon' href="{% static 'favicon.ico' %}" type='image/x-icon' />
-  <title>{% block title %}Maharaja Surajmal Institute{% endblock %}</title>
+  <title>{% block title %}Indira Gandhi National Open University{% endblock %}</title>
 </head>
 <body>
   <header id="header">
@@ -43,8 +43,14 @@
     </div><!-- end .wrapper -->
   </header>
   <nav id="main-navbar" class="main-navbar">
-	<button style='padding-left:10px;' onclick="location.href='/content/upcoming'"><font color='white'>Upcoming Events</font></a></button>
+    <button style='padding-left:10px;' onclick="location.href='/'"><font color='white'>Home</font></a></button>
+    {% if user.is_authenticated %}
+    <button style='padding-left:10px;' onclick="location.href='/content/upcoming'"><font color='white'>Upcoming Events</font></a></button>
 	  <button style='padding-left:10px;' onclick="location.href='/content/past'"><font color='white'>Past Events</font></a></button>
+    {%else%}
+    <button style='padding-left:10px;' onclick="location.href='{% url 'login' %}'"><font color='white'>Upcoming Events</font></a></button>
+	  <button style='padding-left:10px;' onclick="location.href='{% url 'login' %}'"><font color='white'>Past Events</font></a></button>
+    {% endif %}
 	</nav>
 </div>
 <main>
