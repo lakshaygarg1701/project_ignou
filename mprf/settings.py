@@ -25,7 +25,7 @@ SECRET_KEY = 'm8%6wn$76_q$j-#&#p929-lowqlue6$@8!jc*-ras=7g%mcpwo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ignou.centralindia.cloudapp.azure.com','localhost']
 
 
 # Application definition
