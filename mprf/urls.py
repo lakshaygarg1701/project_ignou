@@ -25,5 +25,5 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('content/', include('event.urls')),
-    path('past/add/', Add.as_view())
+    path('add/form', Add.as_view())
 ]
